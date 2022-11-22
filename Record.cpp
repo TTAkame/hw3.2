@@ -72,30 +72,32 @@ bool Record::JSON2Object(Json::Value x){
 
     if(x.size()!=0) {
 
-	      Location l1;
-        Time t1;
-        Thing th1;
-        Thing th2;
-        Person pi1;
-        Person pi2;
-
-	      l1.name=x["Location"]["Description"].toStyledString();
-	      t1.name=x["Time"]["Description"].toStyledString();
+	      lon.name=x["Location"]["Description"].toStyledString();
+	      tme.name=x["Time"]["Description"].toStyledString();
 	      	
         if(x.isMember("Person")){
-             pi1.name=x["Person"]["Description"].toStyledString();
+             pa.name=x["Person"]["Description"].toStyledString();
+         }
+
+         else if(x.isMember("Person 1")){
+            pa.name=x["Person 1"]["Description"].toStyledString();
+         pb.name=x["Person 2"]["Description"].toStyledString();
+         
          }
 
         if(x.isMember("Thing")){
-             th1.name=x["Thing"]["Description"].toStyledString();
+             ta.name=x["Thing"]["Description"].toStyledString();
          }
-         pi1.name=x["Person 1"]["Description"].toStyledString();
-         pi2.name=x["Person 2"]["Description"].toStyledString();
-         th1.name=x["Thing 1"]["Description"].toStyledString();
-         th2.name=x["Thing 2"]["Description"].toStyledString();
-         return 1;
+         else if(x.isMember("Thing 1")){
+         ta.name=x["Thing 1"]["Description"].toStyledString();
+         tb.name=x["Thing 2"]["Description"].toStyledString();
+         
 
-	      } else {
+	      } 
+          return 1;
+    }
+          
+     else {
             return 0;
         }
 }
