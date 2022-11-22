@@ -116,11 +116,28 @@ int main(){
 	Json::Value obj4 = obj[3];
 
 	Record ss1;
+	Record ss2;
+	Record ss3;
+	Record ss4;
+
+
 
 	ss1.JSON2Object(obj[0]);
+	ss2.JSON2Object(obj[1]);
+	ss3.JSON2Object(obj[2]);
+	ss4.JSON2Object(obj[3]);
 
+
+	Json::Value arr2;
+	arr2[0]=ss1.dump2json();
+	arr2[1]=ss2.dump2json();
+	arr2[2]=ss3.dump2json();
+	arr2[3]=ss4.dump2json();
+
+	ofstream out2("output.json");
+	out2<<arr2.toStyledString();
+	out2.close();
 
 
     return 0;
 }
-
