@@ -72,25 +72,25 @@ bool Record::JSON2Object(Json::Value x){
 
     if(x.size()!=0) {
 
-	      lon.name=x["Location"]["Description"].toStyledString();
-	      tme.name=x["Time"]["Description"].toStyledString();
+	      lon.name=x["Location"]["Description"].asString();
+	      tme.name=x["Time"]["Description"].asString();
 	      	
         if(x.isMember("Person")){
-             pa.name=x["Person"]["Description"].toStyledString();
+             pa.name=x["Person"]["Description"].asString();
          }
 
          else if(x.isMember("Person 1")){
-            pa.name=x["Person 1"]["Description"].toStyledString();
-         pb.name=x["Person 2"]["Description"].toStyledString();
+            pa.name=x["Person 1"]["Description"].asString();
+         pb.name=x["Person 2"]["Description"].asString();
          
          }
 
         if(x.isMember("Thing")){
-             ta.name=x["Thing"]["Description"].toStyledString();
+             ta.name=x["Thing"]["Description"].asString();
          }
          else if(x.isMember("Thing 1")){
-         ta.name=x["Thing 1"]["Description"].toStyledString();
-         tb.name=x["Thing 2"]["Description"].toStyledString();
+         ta.name=x["Thing 1"]["Description"].asString();
+         tb.name=x["Thing 2"]["Description"].asString();
          
 
 	      } 
