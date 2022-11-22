@@ -134,7 +134,7 @@ int main(){
 	arr2[2]=ss3.dump2json();
 	arr2[3]=ss4.dump2json();
 
-	ofstream out2("output.json");
+	ofstream out2("out1.json");
 	out2<<arr2.toStyledString();
 	out2.close();
 
