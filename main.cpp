@@ -138,6 +138,8 @@ int main(){
 	out2<<arr2.toStyledString();
 	out2.close();
 
+    cout<<"\noutput.json out2.json complete\n\n";
+
 
     return 0;
 }
