@@ -70,23 +70,32 @@ void Record::setTime(Time te){
 
 bool Record::JSON2Object(Json::Value x){
 
-	if(x.size()!=0){
-	Location l1;
-	l1.name=x["Location"]["Description"].toStyledString();
+    if(x.size()!=0) {
 
+	      Location l1;
+        Time t1;
+        Thing th1;
+        Thing th2;
+        Person pi1;
+        Person pi2;
 
+	      l1.name=x["Location"]["Description"].toStyledString();
+	      t1.name=x["Time"]["Description"].toStyledString();
+	      	
+        if(x.isMember("Person")){
+             pi1.name=x["Person"]["Description"].toStyledString();
+         }
 
-	
-//	l1.name=x["Location"];
-	//	tme=x.operator["Time"];
-		
-		if(x.isMember("Person")){
+        if(x.isMember("Thing")){
+             th1.name=x["Thing"]["Description"].toStyledString();
+         }
+         pi1.name=x["Person 1"]["Description"].toStyledString();
+         pi2.name=x["Person 2"]["Description"].toStyledString();
+         th1.name=x["Thing 1"]["Description"].toStyledString();
+         th2.name=x["Thing 2"]["Description"].toStyledString();
+         return 1;
 
-		}
-
-		return 1;
-	}
-
-	else{return 0;}
-
+	      } else {
+            return 0;
+        }
 }
