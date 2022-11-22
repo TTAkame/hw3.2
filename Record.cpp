@@ -10,6 +10,9 @@
 #include <string>
 
 #include "Record.h"
+#include "Person.h"
+#include "Location.h"
+#include "Time.h"
 
 using namespace std;
 
@@ -68,12 +71,17 @@ void Record::setTime(Time te){
 bool Record::JSON2Object(Json::Value x){
 
 	if(x.size()!=0){
-	x["Location"];
+	Location l1;
+	l1.name=x["Location"]["Description"].toStyledString();
+
+
+
+	
+//	l1.name=x["Location"];
 	//	tme=x.operator["Time"];
 		
 		if(x.isMember("Person")){
-	//		pa=x.operator["Person"];
-		cout<< "x";
+
 		}
 
 		return 1;
